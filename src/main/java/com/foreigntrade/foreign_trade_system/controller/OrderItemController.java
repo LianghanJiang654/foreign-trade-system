@@ -1,7 +1,7 @@
 package com.foreigntrade.foreign_trade_system.controller;
 
 import com.foreigntrade.foreign_trade_system.model.OrderItem;
-import com.foreigntrade.foreign_trade_system.repository.OrderItemRepository;
+import com.foreigntrade.foreign_trade_system.service.OrderItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,18 +12,18 @@ import java.util.List;
 public class OrderItemController {
 
     @Autowired
-    private OrderItemRepository orderItemRepository;
+    private OrderItemService orderItemService;
 
 
     @GetMapping
     public List<OrderItem> getAllOrderItem(){
-        return orderItemRepository.findAll();
+        return orderItemService.getAllOrderItem();
     }
 
     @PostMapping
     public OrderItem createOrderItem(@RequestBody OrderItem orderItem){
 
-        return orderItemRepository.save(orderItem);
+        return orderItemService.createOrderItem(orderItem);
     }
 
 }

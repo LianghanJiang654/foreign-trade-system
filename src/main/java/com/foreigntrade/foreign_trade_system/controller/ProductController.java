@@ -1,25 +1,26 @@
 package com.foreigntrade.foreign_trade_system.controller;
+
 import com.foreigntrade.foreign_trade_system.model.Product;
-import com.foreigntrade.foreign_trade_system.repository.ProductRepository;
+import com.foreigntrade.foreign_trade_system.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("api/product")
+@RequestMapping("/api/product")
 public class ProductController {
 
     @Autowired
-    private ProductRepository productRepository;
+    private ProductService productService;
 
     @GetMapping
-    public List<Product> getAllProduct() {
-        return productRepository.findAll();
+    public List<Product> getAllProducts() {
+        return productService.getAllProducts();
     }
-    @PostMapping
-    public Product createProduct(@RequestBody Product product){
-        return productRepository.save(product);
 
+    @PostMapping
+    public Product createProduct(@RequestBody Product product) {
+        return productService.createProduct(product);
     }
 }
