@@ -19,3 +19,13 @@ Entity和Repository的泛型参数是联动的，改一处必须跟着改另一�
 - Stuck on: 一开始以为是Service层逻辑写错了，实际上是Controller参数注解漏了，
 排查时学会了对比"重构前能跑、重构后不能跑"这个线索来缩小范围
 - Next: 库存校验功能(创建OrderItem时检查库存够不够)
+
+## 2026-07-24 (续)
+- Studied: Service层业务逻辑实现(库存校验+扣减)、@ExceptionHandler统一异常处理
+- Understood: 关联对象传进来时只有id是真实的，其他字段是"半成品"，
+需要用id重新查一次完整数据；throw new RuntimeException()可以主动中断方法执行；
+@ExceptionHandler能把丑陋的500堆栈，转换成干净的错误信息返回给前端
+- Stuck on: 一开始分不清orderItem.getProduct()和从数据库查出来的product的区别，
+后来理解"传进来的是半成品，必须用id重新查一次才是完整的"
+- Next: 考虑要不要给Client、Product也加类似的校验(比如sku重复检查)，
+或者转向准备软考/面试八股文复习

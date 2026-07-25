@@ -27,7 +27,8 @@ public class Product {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-
+    @Version
+    private Integer version;
     // 在这里接着写 name 字段
 
     // 在这里接着写 unitPrice 字段,记得用 @Column(name = "unit_price") 对应数据库的下划线命名
