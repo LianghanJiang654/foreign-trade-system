@@ -81,3 +81,7 @@ real-world order/inventory systems, not just a duplicate field.
   when only an id is passed in a relationship
 - Add a simple frontend to visualize clients, products, and orders
 - Deploy the backend (e.g. Render) and connect it to the hosted MySQL instance
+
+🔗 **Live Demo**: https://foreign-trade-system.onrender.com
+
+（免费套餐闲置后会休眠，首次访问可能需要等待30-60秒唤醒）
