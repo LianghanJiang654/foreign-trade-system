@@ -6,6 +6,7 @@ import com.foreigntrade.foreign_trade_system.repository.OrderItemRepository;
 import com.foreigntrade.foreign_trade_system.repository.ProductRepository;
 import jakarta.persistence.OptimisticLockException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class OrderItemService {
     public List<OrderItem> getAllOrderItem() {
         return orderItemRepository.findAll();
     }
-
+    @Transactional
     public OrderItem createOrderItem(OrderItem orderItem) {
         Integer productId = orderItem.getProduct().getId();
         Product product = productRepository.findById(productId).get();

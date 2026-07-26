@@ -29,3 +29,14 @@ Entity和Repository的泛型参数是联动的，改一处必须跟着改另一�
 后来理解"传进来的是半成品，必须用id重新查一次才是完整的"
 - Next: 考虑要不要给Client、Product也加类似的校验(比如sku重复检查)，
 或者转向准备软考/面试八股文复习
+
+## [今天日期]
+- Studied: 乐观锁(@Version)实现库存并发保护
+- Understood: 乐观锁思路是"先都读写,保存时检查version有没有被别人改过"，
+  和synchronized(先锁住排队)是完全不同的思路；
+  给已有数据的表加version列时，老数据可能是null不是默认值，需要手动UPDATE补上；
+  从JSON转换出来的关联对象只有id、其他字段(包括version)是null，
+  如果直接拿去save会因为"version是null"报错，必须替换成真正查出来的完整对象
+- Stuck on: 一开始没意识到orderItem里的product和查出来的product是两个不同实例，
+  只更新了查出来的那个，orderItem里挂的还是半成品，导致最后save时报错
+- Next: 可以准备面试时讲"乐观锁vs悲观锁"这个经典对比题，或者继续别的功能

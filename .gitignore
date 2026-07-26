@@ -34,5 +34,3 @@ build/
 ### Maven ###
 target/
 
-### Sensitive config ###
-src/main/resources/application.properties
