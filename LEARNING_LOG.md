@@ -40,3 +40,23 @@ Entity和Repository的泛型参数是联动的，改一处必须跟着改另一�
 - Stuck on: 一开始没意识到orderItem里的product和查出来的product是两个不同实例，
   只更新了查出来的那个，orderItem里挂的还是半成品，导致最后save时报错
 - Next: 可以准备面试时讲"乐观锁vs悲观锁"这个经典对比题，或者继续别的功能
+
+     ## [今天日期]
+- Studied: JUnit + Mockito单元测试
+- Understood: 单元测试和集成测试(Postman)的区别——单元测试不碰真实数据库，
+  用Mock(假对象)代替Repository；@Mock造假对象，@InjectMocks自动把假对象
+  注入到被测试的类里；when().thenReturn()预设假对象的行为；
+  assertThrows专门用来验证"应该抛出异常"的场景
+- Stuck on: 一开始用手动set的方式给Service注入Mock，因为字段是private
+  导致setter调不到，后来换成@InjectMocks让Mockito自动处理，更标准
+- Next: 可以再补1-2个测试场景(比如库存正好等于购买数量的边界情况)，
+  或者转向整理"面试怎么讲乐观锁"这段话术
+
+   - Studied: 复盘之前学过的8个Java/Spring核心概念(HashMap、ArrayList扩容、
+  进程线程、堆栈、synchronized、GC、IOC、AOP)
+- Understood: 这些概念其实都还记得，只是"感觉忘了"和"真的忘了"不是一回事，
+  靠主动回忆(而不是被动重读)能验证真实掌握程度；
+  进程/线程和堆/栈这两组类比容易搞混(工厂工人 vs 仓库便利贴)，
+  需要专门区分记忆
+- Next: 继续巩固@Transactional、单元测试这两块比较新的内容，
+  或者开始练习脱稿讲那三段面试话术(乐观锁/Service层/快照价格)
