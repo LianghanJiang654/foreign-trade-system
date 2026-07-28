@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+
 @RestController
 @RequestMapping("/api/product")
 public class ProductController {
@@ -14,13 +16,19 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    @PostMapping("/{id}/sync-stock")
+    public String syncStockToCache(@PathVariable Integer id) {
+        productService.initStockToCache(id);
+        return "库存已同步到Redis";
+    }
     @GetMapping
     public List<Product> getAllProducts() {
         return productService.getAllProducts();
     }
 
-    @PostMapping
-    public Product createProduct(@RequestBody Product product) {
-        return productService.createProduct(product);
+    @GetMapping("/{id}")
+    public Product getProductById(@PathVariable Integer id) {
+        return productService.getProductById(id);
     }
+
 }

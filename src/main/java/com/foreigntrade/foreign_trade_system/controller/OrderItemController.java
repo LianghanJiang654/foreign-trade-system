@@ -27,9 +27,7 @@ public class OrderItemController {
         return orderItemService.createOrderItem(orderItem);
     }
 
-    @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<String> handleRuntimeException(RuntimeException e){
-        return ResponseEntity.badRequest().body(e.getMessage());
-    }
+
+
 
 }
